@@ -1,4 +1,5 @@
 import AnimatedBackground from "./components/AnimatedBackground";
+import CursorFollower from "./components/CursorFollower";
 import HeroContent from "./components/HeroContent";
 import Scene3D from "./components/LazyScene3D";
 import AnimatedSection from "./components/AnimatedSection";
@@ -79,6 +80,7 @@ export default function Home() {
   return (
     <>
       <AnimatedBackground />
+      <CursorFollower />
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-black/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <span className="text-xl font-bold tracking-tight text-white">
@@ -90,12 +92,6 @@ export default function Home() {
             </a>
             <a href="#about" className="transition-colors hover:text-white">
               Acerca de
-            </a>
-            <a
-              href="/login"
-              className="rounded-full border border-white/20 px-4 py-1.5 transition-colors hover:bg-white/10 hover:text-white"
-            >
-              Iniciar Sesión
             </a>
           </div>
         </div>
@@ -111,7 +107,7 @@ export default function Home() {
 
         <AnimatedSection id="features" className="py-32">
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-white">
+            <h2 className="font-display text-4xl font-bold text-white">
               ¿Por qué Audetino?
             </h2>
             <p className="mt-3 text-white/50">
@@ -140,7 +136,7 @@ export default function Home() {
 
         <AnimatedSection id="about" className="pb-32">
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-white">
+            <h2 className="font-display text-4xl font-bold text-white">
               Nuestros productos destacados
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-white/50">
@@ -170,7 +166,7 @@ export default function Home() {
 
         <AnimatedSection className="pb-32">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 px-8 py-20 text-center backdrop-blur-xl md:px-20">
-            <h2 className="text-3xl font-bold text-white md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
               Transformá tu forma de trabajar
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/50">
@@ -207,7 +203,6 @@ export default function Home() {
                 <li><a href="/" className="transition-colors hover:text-white">Inicio</a></li>
                 <li><a href="#features" className="transition-colors hover:text-white">Características</a></li>
                 <li><a href="#about" className="transition-colors hover:text-white">Acerca de</a></li>
-                <li><a href="/login" className="transition-colors hover:text-white">Iniciar Sesión</a></li>
               </ul>
             </div>
             <div>

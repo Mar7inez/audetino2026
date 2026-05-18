@@ -20,7 +20,7 @@ export default function HeroContent() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-        className="text-5xl font-bold leading-tight text-white md:text-7xl"
+        className="font-display text-5xl font-bold leading-tight text-white md:text-7xl"
       >
         Bienvenido a{" "}
         <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
