@@ -21,14 +21,21 @@ export default function DashboardPage() {
   const router = useRouter()
 
   useEffect(() => {
-    getSupabase().auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        router.push("/login")
-        return
-      }
-      setUser(session.user)
-      fetchContactos()
-    })
+    try {
+      getSupabase()
+        .auth.getSession()
+        .then(({ data: { session } }) => {
+          if (!session) {
+            router.push("/login")
+            return
+          }
+          setUser(session.user)
+          fetchContactos()
+        })
+        .catch(() => router.push("/login"))
+    } catch {
+      router.push("/login")
+    }
   }, [router])
 
   async function fetchContactos() {

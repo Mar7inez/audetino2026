@@ -14,17 +14,23 @@ export default function LoginPage() {
     setError("")
     const form = new FormData(e.currentTarget)
 
-    const { error: err } = await getSupabase().auth.signInWithPassword({
-      email: form.get("email") as string,
-      password: form.get("password") as string,
-    })
+    try {
+      const supabase = getSupabase()
+      const { error: err } = await supabase.auth.signInWithPassword({
+        email: form.get("email") as string,
+        password: form.get("password") as string,
+      })
 
-    if (err) {
-      setError("Email o contraseña incorrectos")
-      return
+      if (err) {
+        setError("Email o contraseña incorrectos")
+        return
+      }
+
+      router.push("/dashboard")
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error desconocido"
+      setError("Error de conexión: " + msg)
     }
-
-    router.push("/dashboard")
   }
 
   return (
