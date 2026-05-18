@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 import AnimatedBackground from "../components/AnimatedBackground"
 import type { User } from "@supabase/supabase-js"
 
@@ -21,7 +21,7 @@ export default function DashboardPage() {
   const router = useRouter()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    getSupabase().auth.getSession().then(({ data: { session } }) => {
       if (!session) {
         router.push("/login")
         return
@@ -32,7 +32,7 @@ export default function DashboardPage() {
   }, [router])
 
   async function fetchContactos() {
-    const { data } = await supabase
+    const { data } = await getSupabase()
       .from("contactos")
       .select("*")
       .order("created_at", { ascending: false })
@@ -42,7 +42,7 @@ export default function DashboardPage() {
   }
 
   async function handleLogout() {
-    await supabase.auth.signOut()
+    await getSupabase().auth.signOut()
     router.push("/login")
   }
 

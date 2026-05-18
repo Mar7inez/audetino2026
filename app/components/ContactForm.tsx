@@ -1,7 +1,7 @@
 'use client'
 
 import { type FormEvent, useState } from "react"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false)
@@ -12,11 +12,13 @@ export default function ContactForm() {
     setError("")
     const form = new FormData(e.currentTarget)
 
-    const { error: err } = await supabase.from("contactos").insert({
-      nombre: form.get("nombre"),
-      email: form.get("email"),
-      mensaje: form.get("mensaje"),
-    })
+    const { error: err } = await getSupabase()
+      .from("contactos")
+      .insert({
+        nombre: form.get("nombre"),
+        email: form.get("email"),
+        mensaje: form.get("mensaje"),
+      } as any)
 
     if (err) {
       setError("No se pudo enviar. Escribinos directamente a administracion@audetino.com")

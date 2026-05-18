@@ -2,7 +2,7 @@
 
 import { type FormEvent, useState } from "react"
 import { useRouter } from "next/navigation"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 import AnimatedBackground from "../components/AnimatedBackground"
 
 export default function LoginPage() {
@@ -14,7 +14,7 @@ export default function LoginPage() {
     setError("")
     const form = new FormData(e.currentTarget)
 
-    const { error: err } = await supabase.auth.signInWithPassword({
+    const { error: err } = await getSupabase().auth.signInWithPassword({
       email: form.get("email") as string,
       password: form.get("password") as string,
     })
