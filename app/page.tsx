@@ -4,13 +4,14 @@ import HeroContent from "./components/HeroContent";
 import Scene3D from "./components/LazyScene3D";
 import AnimatedSection from "./components/AnimatedSection";
 import AnimatedCard from "./components/AnimatedCard";
+import ContactForm from "./components/ContactForm";
 
 const features = [
   {
     title: "Gestión Simplificada",
     desc: "Administra proyectos desde un solo lugar con nuestra interfaz intuitiva.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Gestión Simplificada" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <rect x="3" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="3" width="7" height="4" rx="1" />
         <rect x="14" y="10" width="7" height="11" rx="1" />
@@ -22,7 +23,7 @@ const features = [
     title: "Colaboración en Tiempo Real",
     desc: "Trabaja con tu equipo de manera eficiente con nuestras herramientas de colaboración.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Colaboración" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -34,7 +35,7 @@ const features = [
     title: "Análisis Detallado",
     desc: "Obtén información valiosa con nuestros reportes y análisis personalizados.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Análisis" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <path d="M3 3v18h18" />
         <path d="M7 16l4-8 4 4 4-6" />
       </svg>
@@ -47,7 +48,7 @@ const products = [
     title: "Audetino Inmobiliario",
     desc: "Catálogo inmobiliario personal, ideal para martilleros y agentes inmobiliarios.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Audetino Inmobiliario" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
         <path d="M9 21V12h6v9" />
       </svg>
@@ -57,7 +58,7 @@ const products = [
     title: "Audetino Web Institucional",
     desc: "Gestiona tus proyectos desde cualquier navegador con nuestra plataforma web institucional.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Audetino Web" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20" />
         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
@@ -68,11 +69,26 @@ const products = [
     title: "Audetino API",
     desc: "Integra funcionalidades externas con tus aplicaciones existentes.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+      <svg role="img" aria-label="Audetino API" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
         <polyline points="16 18 22 12 16 6" />
         <polyline points="8 6 2 12 8 18" />
       </svg>
     ),
+  },
+];
+
+const testimonios = [
+  {
+    nombre: "Martillero Público",
+    texto: "Audetino Inmobiliario me permitió centralizar todas mis propiedades en un solo lugar. Mis clientes quedan impresionados con el catálogo digital.",
+  },
+  {
+    nombre: "Equipo de Gestión",
+    texto: "La colaboración en tiempo real transformó la dinámica de nuestro equipo. Ahora todos trabajamos sincronizados desde cualquier lugar.",
+  },
+  {
+    nombre: "Departamento de IT",
+    texto: "La API de Audetino nos permitió integrar nuestros sistemas existentes sin fricción. Documentación clara y soporte excelente.",
   },
 ];
 
@@ -83,15 +99,18 @@ export default function Home() {
       <CursorFollower />
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-black/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <span className="text-xl font-bold tracking-tight text-white">
+          <a href="/" className="text-xl font-bold tracking-tight text-white">
             Audetino
-          </span>
+          </a>
           <div className="flex items-center gap-6 text-sm text-white/60">
             <a href="#features" className="transition-colors hover:text-white">
               Productos
             </a>
-            <a href="#about" className="transition-colors hover:text-white">
+            <a href="/acerca-de" className="transition-colors hover:text-white">
               Acerca de
+            </a>
+            <a href="/contacto" className="transition-colors hover:text-white">
+              Contacto
             </a>
           </div>
         </div>
@@ -111,8 +130,7 @@ export default function Home() {
               ¿Por qué Audetino?
             </h2>
             <p className="mt-3 text-white/50">
-              Todo lo que necesitas para gestionar tus proyectos con
-              inteligencia
+              Todo lo que necesitas para gestionar tus proyectos con inteligencia
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -164,32 +182,57 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="pb-32">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 px-8 py-20 text-center backdrop-blur-xl md:px-20">
-            <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              Transformá tu forma de trabajar
+        <AnimatedSection className="py-32">
+          <div className="mb-16 text-center">
+            <h2 className="font-display text-4xl font-bold text-white">
+              Lo que dicen nuestros clientes
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-white/50">
-              Descubrí cómo Audetino puede transformar la forma en que gestionás
-              tus proyectos y recursos. Simplificá, colaborá y analizá con
-              inteligencia.
+            <p className="mt-3 text-white/50">
+              Experiencias reales de equipos que ya confían en Audetino
             </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <a
-                href="mailto:administracion@audetino.com"
-                className="inline-flex cursor-pointer items-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-transform hover:scale-105"
-              >
-                Solicitar demo
-              </a>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonios.map((t, i) => (
+              <AnimatedCard key={t.nombre} index={i}>
+                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+                  <div className="mb-4 flex items-center gap-1 text-amber-400">
+                    {[...Array(5)].map((_, j) => (
+                      <svg key={j} role="img" aria-label="Estrella" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed text-white/60">
+                    &ldquo;{t.texto}&rdquo;
+                  </p>
+                  <p className="mt-4 text-sm font-medium text-white">
+                    — {t.nombre}
+                  </p>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection className="pb-20">
+          <div className="rounded-3xl border border-white/10 bg-white/5 px-8 py-16 backdrop-blur-xl md:px-20">
+            <div className="mb-16 text-center">
+              <h2 className="font-display text-4xl font-bold text-white">
+                Contactanos
+              </h2>
+              <p className="mt-3 text-white/50">
+                Dejanos tus datos y te contactamos a la brevedad
+              </p>
             </div>
+            <ContactForm />
           </div>
         </AnimatedSection>
       </main>
 
       <footer className="relative z-10 border-t border-white/5 bg-black/20 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid gap-10 md:grid-cols-3">
-            <div>
+          <div className="grid gap-10 md:grid-cols-4">
+            <div className="md:col-span-1">
               <span className="text-xl font-bold text-white">Audetino</span>
               <p className="mt-3 text-sm leading-relaxed text-white/40">
                 Simplificando la gestión de proyectos desde 2015
@@ -197,12 +240,22 @@ export default function Home() {
             </div>
             <div>
               <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
-                Enlaces rápidos
+                Productos
+              </h4>
+              <ul className="space-y-2 text-sm text-white/40">
+                <li><span className="text-white/40">Inmobiliario</span></li>
+                <li><span className="text-white/40">Web Institucional</span></li>
+                <li><span className="text-white/40">API</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+                Enlaces
               </h4>
               <ul className="space-y-2 text-sm text-white/40">
                 <li><a href="/" className="transition-colors hover:text-white">Inicio</a></li>
-                <li><a href="#features" className="transition-colors hover:text-white">Características</a></li>
-                <li><a href="#about" className="transition-colors hover:text-white">Acerca de</a></li>
+                <li><a href="/acerca-de" className="transition-colors hover:text-white">Acerca de</a></li>
+                <li><a href="/contacto" className="transition-colors hover:text-white">Contacto</a></li>
               </ul>
             </div>
             <div>
@@ -211,10 +264,7 @@ export default function Home() {
               </h4>
               <ul className="space-y-2 text-sm text-white/40">
                 <li>
-                  <a
-                    href="mailto:administracion@audetino.com"
-                    className="transition-colors hover:text-white"
-                  >
+                  <a href="mailto:administracion@audetino.com" className="transition-colors hover:text-white">
                     administracion@audetino.com
                   </a>
                 </li>
@@ -222,8 +272,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 border-t border-white/5 pt-8 text-center text-sm text-white/30">
-            &copy; {new Date().getFullYear()} Audetino. Todos los derechos
-            reservados.
+            &copy; {new Date().getFullYear()} Audetino. Todos los derechos reservados.
           </div>
         </div>
       </footer>
