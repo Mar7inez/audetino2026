@@ -1,65 +1,112 @@
-import Image from "next/image";
+import AnimatedBackground from "./components/AnimatedBackground";
+import Scene3D from "./components/LazyScene3D";
+import MagneticButton from "./components/MagneticButton";
+
+const services = [
+  {
+    title: "Auditoría Financiera",
+    desc: "Análisis exhaustivo de estados financieros con metodologías basadas en inteligencia de datos.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" />
+      </svg>
+    ),
+  },
+  {
+    title: "Consultoría Estratégica",
+    desc: "Asesoramiento financiero y estratégico para optimizar procesos y maximizar resultados.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+      </svg>
+    ),
+  },
+  {
+    title: "Compliance & Regulación",
+    desc: "Cumplimiento normativo integral adaptado a las regulaciones locales e internacionales más exigentes.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Due Diligence",
+    desc: "Evaluaciones profundas para fusiones, adquisiciones e inversiones con informes detallados.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <path d="M9 12l2 2 4-4" /><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Gestión de Riesgos",
+    desc: "Identificación, evaluación y mitigación de riesgos financieros y operativos con modelos predictivos.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <path d="M12 9v4M12 17h.01" /><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Transformación Digital",
+    desc: "Implementación de tecnologías disruptivas para la digitalización de procesos de auditoría.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-indigo-400">
+        <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+      </svg>
+    ),
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <AnimatedBackground />
+      <main className="relative z-10 mx-auto max-w-6xl px-6">
+        <section className="flex min-h-screen flex-col items-center gap-12 py-20 md:flex-row">
+          <div className="flex-1 space-y-6">
+            <h1 className="text-5xl font-bold leading-tight text-white md:text-7xl">
+              Auditino{" "}
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                2026
+              </span>
+            </h1>
+            <p className="max-w-lg text-lg leading-relaxed text-white/60">
+              Liquid Intelligence &mdash; la evolución de la auditoría financiera.
+              Transparencia, precisión e inteligencia artificial al servicio de tu
+              negocio.
+            </p>
+            <MagneticButton>Solicitar Demo</MagneticButton>
+          </div>
+          <div className="h-[400px] w-full md:h-[500px] md:w-1/2">
+            <Scene3D />
+          </div>
+        </section>
+
+        <section className="pb-32 pt-20">
+          <h2 className="mb-4 text-center text-4xl font-bold text-white">
+            Servicios
+          </h2>
+          <p className="mb-16 text-center text-white/50">
+            Soluciones integrales para cada necesidad
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <div
+                key={s.title}
+                className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-colors hover:border-white/20 hover:bg-white/10"
+              >
+                <div className="mb-4">{s.icon}</div>
+                <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">
+                  {s.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
-    </div>
+    </>
   );
 }
