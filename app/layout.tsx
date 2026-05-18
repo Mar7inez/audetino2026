@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Auditino 2026 — Liquid Intelligence",
+  title: "Audetino — Gestión inteligente de proyectos",
   description:
-    "Auditoría financiera con inteligencia líquida. Glassmorphism, Bent Grid y animaciones 3D para una experiencia sofisticada.",
+    "La plataforma que simplifica la gestión adaptativa a tus proyectos y recursos. Catálogo inmobiliario, web institucional y API.",
 };
 
 export default function RootLayout({
