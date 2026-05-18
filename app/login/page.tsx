@@ -27,9 +27,8 @@ export default function LoginPage() {
       }
 
       router.push("/dashboard")
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Error desconocido"
-      setError("Error de conexión: " + msg)
+    } catch {
+      setError("Error de conexión")
     }
   }
 
