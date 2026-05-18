@@ -12,20 +12,20 @@ export default function ContactForm() {
     setError("")
     const form = new FormData(e.currentTarget)
 
-    const { error: err } = await getSupabase()
-      .from("contactos")
-      .insert({
-        nombre: form.get("nombre"),
-        email: form.get("email"),
-        mensaje: form.get("mensaje"),
-      } as any)
+    try {
+      const { error: err } = await getSupabase()
+        .from("contactos")
+        .insert({
+          nombre: form.get("nombre"),
+          email: form.get("email"),
+          mensaje: form.get("mensaje"),
+        } as any)
 
-    if (err) {
-      setError("No se pudo enviar. Escribinos directamente a administracion@audetino.com")
-      return
+      if (err) throw err
+      setSent(true)
+    } catch {
+      setError("No se pudo enviar. Escribinos a administracion@audetino.com")
     }
-
-    setSent(true)
   }
 
   if (sent) {
